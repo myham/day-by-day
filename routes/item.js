@@ -29,7 +29,7 @@ router.post('/list',function(request,response){
        	var id = request.body.id;
        	var count = request.body.count;
    		var price = request.body.price;
-        console.log('id'+id+'count'+count+'price'+price);
+        console.log('姓名：'+id+'年龄：'+count+'班级：'+price);
 })
 
 
