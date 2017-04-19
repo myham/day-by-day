@@ -10,6 +10,9 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var item = require('./routes/item');
+var zhuce = require('./routes/student');
+var login = require('./routes/loginH');
+var xiugai = require('./routes/xiugaiH');
 //引入后台文件需要写路径但后缀可以省略
 
 var app = express();
@@ -30,6 +33,9 @@ app.use('/', index);
 app.use('/users', users);
 
 app.use('/item',item);
+app.use('/zhuce',zhuce);
+app.use('/login',login);
+app.use('/xiugai',xiugai);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -50,7 +56,7 @@ app.use(function(err, req, res, next) {
 });
 
    app.listen('9664',function(){
-	   console.log('server start .......')
+//	   console.log('server start .......')
    })
    
    
