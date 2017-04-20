@@ -1,33 +1,45 @@
-/*a {
-  color: #00B7FF;
-}
+/*弹框*/
 .wrapper{
-	width: 400px;
-	height: 400px;
-	
+	width: 100%;
+	height:100vh;
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
 }
-table{
-	width: auto;
-	height: auto;
+.wtext{
+	color: white;
+	font-size: 38px;
+	margin-left: 40%;
+	margin-top: 10%;
 }
-table tr{
-	
-}
-table th{
-	width: 80px;
-	height: 30px;
+.btn input:nth-child(1){
+	background: skyblue;
+	color: white;
+	width: 100px;
+	height: 40px;
 	text-align: center;
-	line-height: 30px;
+	line-height: 40px;
+	margin-left: 45%;
+	margin-top: 5%;
+	font-size: 24px;
 }
-table tr td{
-	width: 80px;
-	height: 30px;
-	text-align: center;
-	line-height: 30px;
-}*/
+.cuo{
+	font-size: 28px;
+	color: white;
+	margin-left: 60%;
+	margin-top: -10.5%;
+}
 
 
-.wrapper{
+
+
+
+
+
+/*注册*/
+/*.wrapper{
 	width: 400px;
 	height: 400px;
 	top: 0;
@@ -35,7 +47,7 @@ table tr td{
 	bottom: 0;
 	right: 0;
 	margin: auto;
-}
+}*/
 .inputOne{
 	float: left;
 	width: 100%;

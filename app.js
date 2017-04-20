@@ -10,7 +10,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 var item = require('./routes/item');
-var zhuce = require('./routes/student');
+var zhuce = require('./routes/zhuceH');
 var login = require('./routes/loginH');
 var xiugai = require('./routes/xiugaiH');
 //引入后台文件需要写路径但后缀可以省略

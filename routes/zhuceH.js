@@ -12,21 +12,30 @@ var pool = mysql.createPool({
 	   port:3306      //端口号
 })
 
-
-
-
+//根据用户名查询用户
+   function getUserByName(uname,callback){
+   	  pool.getConnection(function(err,conn){
+   	  	var sql = 'select * from user where username = ?';
+   	  	conn.query(sql,[uname],function(err,result){
+   	  		 if(err){         //如果报错
+   	  		  	console.log(err.message);          //把报错的 地方打印
+   	  		  	return;
+   	  		  }
+   	  		  conn.release(); //释放连接
+   	  		  callback(err,result) 	  		  
+   	  	  })
+   	  })
+   }
 router.post('/zhuce',function(req,response){   //一请求 二响应参数给前台传数据
 //  console.log('into.....');
     var username = req.body.username;
     var password =  req.body.password;
-    var email =  req.body.email;
     var tel =  req.body.tel;
-//  console.log(username);
-//  console.log(password);
-//  console.log(time);
-//  console.log(tel);
+    console.log(username);
+    console.log(password);
+    console.log(tel);
     
-    getUserByName(username,password,function(err,result){
+    getUserByName(username,function(err,result){
     	if(result==''||result==null){
            save(username,password,tel,function(err,result){
            	console.log('注册成功');
@@ -69,20 +78,7 @@ function save(uname,pwd,tel,callback){
 
 
 
-//根据用户名查询用户
-   function getUserByName(uname,pas,callback){
-   	  pool.getConnection(function(err,conn){
-   	  	var sql = 'select * from user where username = ? or password = ?';
-   	  	conn.query(sql,[uname,pas],function(err,result){
-   	  		 if(err){         //如果报错
-   	  		  	console.log(err.message);          //把报错的 地方打印
-   	  		  	return;
-   	  		  }
-   	  		  conn.release(); //释放连接
-   	  		  callback(err,result) 	  		  
-   	  	  })
-   	  })
-   }
+
 
 
 

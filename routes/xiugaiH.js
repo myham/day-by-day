@@ -50,7 +50,7 @@ router.get('/xiugai',function(req,response){
    	  pool.getConnection(function(err,conn){
    	  	var sql = 'update user set username = ?,password = ?,tel = ?  where uid = ?';
    	  	conn.query(sql,[uname,pwd,tel,id],function(err,result){
-   	  		  console.log(result)
+// 	  		  console.log(result)
    	  		  callback(err,result)
    	  	})
    	  })
@@ -72,11 +72,70 @@ router.post('/xiugai',function(req,response){
 			console.log('成功');
 			response.send({results:results});
 		}
-	})
-       
-    
-   
+	})              
 })
+
+
+
+//   删除
+   function delAllUsers(uid,callback){
+   	  pool.getConnection(function(err,conn){
+   	  	var sql = 'delete from user where uid = ?';
+   	  	conn.query(sql,[uid],function(err,result){
+// 	  		  console.log('result:'+result)
+   	  		  callback(err,result)
+   	  	})
+   	  })
+   }
+
+router.get('/del',function(req,response){
+      var id = req.query.id;
+      console.log(id)
+    
+//  修改数据
+    delAllUsers(id,function(err,results){    //参数是一个函数
+		if(err){
+			console.log('删除失败')
+			response.send(err)
+		}else if(results){
+			console.log('删除成功');
+			response.send({results:1});
+		}
+	})            
+})
+
+
+//搜索
+
+  //获取表信息
+   function seachAllUsers(uname,pas,callback){
+   	  pool.getConnection(function(err,conn){
+   	  	var sql = 'select * from user where username like ? or password like ?';
+// 	  		console.log('conn'+conn)
+   	  	conn.query(sql,['%'+uname+'%','%'+pas+'%'],function(err,result){
+// 	  		  console.log('result:'+result)
+   	  		  callback(err,result)
+   	  		   conn.release(); //释放连接
+   	  	})
+   	  })
+   }
+
+   router.get('/seach',function(req,response){
+         var wen = req.query.scTxt
+         console.log(wen)
+// 查询数据
+    seachAllUsers(wen,wen,function(err,results){    //参数是一个函数
+		if(err){
+			console.log('搜索失败')
+			response.send(err)
+		}else if(results){
+			console.log('搜索成功');
+			response.send({results:results});
+		}
+	}) 
+})
+
+
 
 
 

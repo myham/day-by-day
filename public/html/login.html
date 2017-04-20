@@ -8,24 +8,91 @@
 		<script src="../javascripts/md5.js"></script>
 	</head>
 	<style>
-		.wrapper >div{
+		.wra >div{
 			width: 100%;
 			height: 40px;
 			float: left;
 		}
+		
+		/*弹框*/
+	.wrapper{
+		width: 100%;
+		height:100vh;
+		background: rgba(0,0,0,0.5);
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: none;
+	}
+	.wtext{
+		color: white;
+		font-size: 38px;
+		margin-left: 39%;
+		margin-top: 10%;
+	}
+	.btn input:nth-child(1){
+		background: skyblue;
+		color: white;
+		width: 100px;
+		height: 40px;
+		text-align: center;
+		line-height: 40px;
+		margin-left: 45%;
+		margin-top: 5%;
+		font-size: 24px;
+	}
+	.cuo{
+		font-size: 28px;
+		color: white;
+		margin-left: 60%;
+		margin-top: -10.5%;
+	}
+	#code {
+		font-family: Arial;
+		font-style: italic;
+		font-weight: bold;
+		border: 0;
+		letter-spacing: 2px;
+		color: blue;
+	}
 	</style>
-	<body>
-	    <div class="wrapper">
+	<body style="background-image: url(../images/gg2.jpeg); width: 100%;height: 100vh; background-size: 100% 100%;overflow: hidden;">
+		
+		<div class="wrapper">
+			<div class="wtext">用户名或密码为空</div>
+			<div class="btn">
+				<input type="button" value="确定" class="dell"/>
+			</div>
+		</div>
+		
+		
+		
+	    <div class="wra">
 	    	<div class="deng1">
 	    		用户名：<input type="text" class="text" />	    		
 	    	</div>
-	    	<div>
+	    	<div class="mima">
 	    		密码：<input type="password" class="password" />
 	    	</div>
+	    	
+<!--验证码-->	 	    	
+	    <div class="yzm">   
+	    <input type="text" id="input" value="" />
+			<input type="button" id="code" />
+			<input type="button" id="cc" value="验证" />
+	    </div>
+	    	
 	    	<div>
 	    		<input type="button" value="登录" class="btnlogin"/>
-	    		<input type="button" value="注册" class="btnlogin"/>
+	    		<input type="button" value="注册" class="btnzhuce"/>
 	    	</div>
 	    </div>
+	    
+
+	    
+	    
+	    
+	    
+	    
 	</body>
 </html>

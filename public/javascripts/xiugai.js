@@ -20,29 +20,45 @@ window.addEventListener('load',function(){
 	
 	
 	$('#xbtn').click(function(){
-		    var xtext = $('#xtext').val();
-		    var xword = $('#xword').val();
-		    var xtel = $('#xtel').val();
-		    var xtime = $('#xtime').val();
+		   $(".wrapper").css('display','block');
+		   
+		   $(".dell").click(function(){
+		   	  $(".wrapper").css('display','none');
+		   	    var xtext = $('#xtext').val();
+			    var pas = $('#xword').val();
+			    var xtel = $('#xtel').val();
+			    var xtime = $('#xtime').val();
+		   	        $.ajax({
+						type: "post",
+						url: "http://localhost:9664/xiugai/xiugai",
+						async: true,
+						data:{
+							id:id,
+							username:xtext,
+							password:MD5(pas),
+							tel:xtel,
+							regtime:xtime
+						},
+				        success: function(data) {
+				        	console.log(data);
+//				        	sessionStorage.setItem('pass',MD5(pas))
+			                location.href='list.html';
+				        }
+				
+				      })
+			   	
+		          })
+		    $(".cuo").click(function(){
+		    	$(".wrapper").css('display','none');
+		    })
 		    
 		    
-		    $.ajax({
-			type: "post",
-			url: "http://localhost:9664/xiugai/xiugai",
-			async: true,
-			data:{
-				id:id,
-				username:xtext,
-				password:xword,
-				tel:xtel,
-				regtime:xtime
-			},
-	        success: function(data) {
-	        	console.log(data);
-                
-	        }
-	
-	      })		    				    
+	   
+		    
+		    
+		    
+		    
+		    
 	})
 	
 	
