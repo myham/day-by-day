@@ -31,10 +31,30 @@
 	margin-left: 60%;
 	margin-top: -10.5%;
 }
-
-
-
-
+.button{
+	width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+}
+.total{
+	position: absolute;
+	top: 51%;
+	left: 22%;
+	background: rgba(255,255,255,0.6);
+	border-radius: 20%;
+}
+.topList{
+	background: deepskyblue;
+	display: inline-block;
+	float: left;
+}
+.bottomList{
+	background: deepskyblue;
+	display: inline-block;
+	float: left;
+}
 
 
 
@@ -65,8 +85,12 @@
 				color: blue;
 			}
 
-
-
+.biaotou {
+	/*border-bottom: 0;*/
+}
+.biaotou tr th{
+	width: 10%;
+}
 
 
 

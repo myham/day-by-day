@@ -4,10 +4,10 @@
 		<meta charset="UTF-8">
 		<title>列表页</title>
 		<script src="../javascripts/jquery-2.1.4.min.js"></script>
-		<!--<script src="../javascripts/zhuce.js"></script>-->
 		<script src="../javascripts/az.js"></script>
 		<script src="../javascripts/delet.js"></script>
 		<script src="../javascripts/seach.js"></script>
+		<script src="../javascripts/fenye.js"></script>
 		<link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
 	</head>
 	<body style="background-image: url(../images/gg2.jpeg); width: 100%;height: 100vh; background-size: 100% 100%;overflow: hidden;">				
@@ -22,21 +22,31 @@
 		<div>
 			<span>搜索</span> 
 			<input type="text" class="seachTxt" /> 
-		    <input type="button" value="搜索" class="seachBtn" style="background: pink;"/> 
+		    <input type="button" value="搜索" class="seachBtn" style="background: pink;"/></br> 
+		    <div class="total">
+		    一共<span class="totalPage"></span>条数据
+		    <span class="page">1</span>/<span class='pagepage'></span>页
+		    </div>
 		</div>
-		
-		
-		<table class="zhj" border="1px solid black" cellspacing="0" cellpadding="0">
-			<tr>
+		<table class='biaotou' border="1px solid black" cellspacing="0" cellpadding="0">
+				<tr>
 				<th>username</th>
 				<th>uid</th>
 				<th>password</th>
 				<th>tel</th>
 				<th>regtime</th>
 				<th>修改信息</th>
-			</tr>			
+			</tr>	
+		</table>	
+		     	
+		<table class="zhj" border="1px solid black" cellspacing="0" cellpadding="0">
+				
 		</table>	
 		
+		<div class="button" >
+			<input type="button" class="topList" value="上一页"/>
+			<input type="button" class="bottomList" value="下一页"/>
+		</div>
 		
 	
 		

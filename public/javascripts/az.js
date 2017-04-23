@@ -1,10 +1,12 @@
-window.addEventListener('load',function(){
-	$.ajax({
+window.addEventListener('load',function(){	
+	function Fnlist(){
+		$.ajax({
 			type: "get",
-			url: "http://localhost:9664/item/list",
+			url: 'http://localhost:9664/item/list',
 			async: true,
 	        success: function(data) {
 	        	console.log(data);
+	        	data=data;
 	        	html = '';
 	            for(var i=0;i<data.length;i++){
 	            	html+='<tr><td>'+data[i].username+'</td><td>'+data[i].uid+'</td><td>'+data[i].password+'</td><td>'+data[i].tel+'</td><td>'+data[i].regtime+'</td><td id = '+data[i].uid+'><button class="btn">修改</button><button class="btndel">删除</button><button id="btnxq">详情</button></td></tr>'
@@ -12,7 +14,15 @@ window.addEventListener('load',function(){
 	        	$('.zhj').append(html)
 	        }
 	
-	  })
+	   })
+		
+	}
+	Fnlist()
+	
+
+//	})
+	
+	
 	
 //   进入修改页	
 	
@@ -23,6 +33,22 @@ window.addEventListener('load',function(){
 	
 	
 	})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

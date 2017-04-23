@@ -4,7 +4,8 @@ window.addEventListener('load',function(){
 		     	var pas = $('.password').val();
 		      	var email = $('.email').val();
 		        var tel = $('.tel').val();
-
+                var picture = $('.file').val()
+                
      
 						$.ajax({
 						type: "post",
@@ -13,8 +14,8 @@ window.addEventListener('load',function(){
 						data:{
 							username:user,
 							password:MD5(pas),
-							time:email,
-							tel:tel
+							tel:tel,
+							pic:picture
 						},
 					        success:function(data) {					        						        	console.log(data)
 					        	sessionStorage.setItem('user_name',user);

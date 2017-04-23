@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>上传图片</title>
+		<script src="../javascripts/jquery-2.1.4.min.js"></script>
+		<!--<script src="../javascripts/updataFlie.js"></script>-->	
+		<!--<script src="../javascripts/md5.js"></script>-->
+	</head>
+	<style type="text/css">
+		.aa{
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			border: 1px solid white;
+			overflow: hidden;
+			display: none;
+		}
+		.aa img{
+			width: 100%;
+			height:100%;
+		}
+	</style>
+	<body style="background-image: url(../images/gg2.jpeg); width: 100%;height: 100vh; background-size: 100% 100%;overflow: hidden;">
+		 <div class="wrapper">
+            <div>
+            	<input type="file" class="file"/>
+            	<div class="aa"></div>
+            </div>
+            <input type="button" onclick = "aa()" value="注册" class="btn" />
+            
+            
+		 </div>
+	</body>
+	<script>
+//	var files;
+	
+	$('.file').change(function(){		
+		aaa = this.files[0]
+		console.log(aaa);
+																		
+	})
+		function aa (){
+			var form = new FormData();
+            form.append("file2",aaa)
+            console.log(form.get("file2"))
+						$.ajax({
+						type: "post",
+						url:"http://localhost:9664/zhuce/file",
+						async: true,
+						contentType:false,
+						processData:false,
+						data:form,
+					   	success:function(data) {
+					   		console.log(data);
+//					   	    $('aa').css('display','block')
+//					   	    $('.aa').html(data)					   						    
+					    }
+					
+					})
+		}
+	</script>
+</html>

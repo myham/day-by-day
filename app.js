@@ -13,6 +13,7 @@ var item = require('./routes/item');
 var zhuce = require('./routes/zhuceH');
 var login = require('./routes/loginH');
 var xiugai = require('./routes/xiugaiH');
+var fenye = require('./routes/xiugaiH');
 //引入后台文件需要写路径但后缀可以省略
 
 var app = express();
@@ -36,6 +37,7 @@ app.use('/item',item);
 app.use('/zhuce',zhuce);
 app.use('/login',login);
 app.use('/xiugai',xiugai);
+app.use('/fenye',fenye);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

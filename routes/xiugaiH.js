@@ -137,11 +137,57 @@ router.get('/del',function(req,response){
 
 
 
+//  分页数据
+// 先获取列表信息
+function getUsers(callback){
+   	  pool.getConnection(function(err,conn){
+   	  	var sql = 'select * from user';
+   	  	conn.query(sql,function(err,result){	  		 
+   	  		var total = result.length;
+   	  		conn.release(); //释放连接
+   			callback(err,total) 
+   	  	})   	  
+   	 }) 	
+   }
+
+//  结果
+   function getResults(chushi,callback){
+   	   var pageSize = 5;
+   	   var startPage = chushi*pageSize;  //当前页	   	
+   	  pool.getConnection(function(err,conn){
+   	  	var sql = 'select * from user limit ? , ?';
+   	  	conn.query(sql,[startPage,pageSize],function(err,result){
+           if(err){
+           	   console.log('total_Erro:'+err.message);
+           	   return
+           }
+   	  		  callback(err,result,pageSize)
+   	  		   conn.release(); //释放连接
+   	  	 })
+   	  })
+   }
 
 
+ router.get('/fenye',function(req,response){
+         var cs = Number(req.query.cs);
+         console.log('cs:'+cs);
+         var total=0;
+         
+        getUsers(function(err,total){
+        	if(err){
+        		console.log('报错');
+        	}else if(total){
+        		console.log('成功')
+        		total = total;
+		 getResults(cs,function(err,reslist,pageSize){
+		    	var totalPage = Math.ceil(total/pageSize);
+		    	var data = {total:total,pageSize:pageSize,totalPage:totalPage,list:reslist}
+		    	response.send(data)
+		      })        		        		        		
+        	}
+        })
 
-
-
+})
 
 
 
